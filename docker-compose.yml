@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  webhook_service:
+    build: .
+    container_name: webhook_service
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/dbname
+    depends_on:
+      - db
+    networks:
+      - webhook_network
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: dbname
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    networks:
+      - webhook_network
+
+networks:
+  webhook_network:
+    driver: bridge
