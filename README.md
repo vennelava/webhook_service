@@ -37,4 +37,9 @@ pip install -r requirements.txt
 3.run the FastAPI app:
 uvicorn app.main:app --reload
 
+DEPLOYMENT
+The project is deployed on Render and can be accessed here:
+https://webhook-service-thn5.onrender.com
 
+API documentation is available at:
+https://webhook-service-thn5.onrender.com/docs
