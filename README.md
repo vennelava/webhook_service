@@ -87,18 +87,26 @@ curl -X POST http://localhost:8000/ingest_event \
 
 
 Estimated cost:
+
 Assumes moderate usage (~5,000 events/day), each triggering ~1.2 deliveries on average. The free tier comfortably handles this with occasional cold starts and retry spikes.
 
 Assumptions
+
 Delivery endpoints (client URLs) will accept JSON payloads over POST.
 Secrets are shared in advance and known only between sender and receiver.
 A retry limit of 3 is sufficient for most transient delivery failures.
 No payload validation or signature verification on the receiver side (but secret is available if needed).
 
 CREDITS
+
 FastAPI
+
 Celery
+
 Redis
+
 Render
+
 Docker
+
 OpenAI ChatGPT – for helping break down and guide the architecture and implementation
